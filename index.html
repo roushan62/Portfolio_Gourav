@@ -110,21 +110,14 @@
       backdrop-filter: blur(10px);
       background: rgba(255, 255, 255, 0.9);
     }
-    .link-input-modal {
+    .cert-fullview-modal {
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.5);
+      background: rgba(0,0,0,0.9);
       display: flex;
       align-items: center;
       justify-content: center;
-      z-index: 50;
-    }
-    .modal-content {
-      background: white;
-      border-radius: 16px;
-      padding: 32px;
-      max-width: 500px;
-      width: 90%;
+      z-index: 70;
     }
   </style>
   <style>@view-transition { navigation: auto; }</style>
@@ -405,29 +398,39 @@
     <div class="max-w-7xl mx-auto">
      <div class="fade-in text-center mb-12"><span class="inline-block px-4 py-2 bg-white/10 text-safety-yellow font-semibold rounded-full text-sm mb-4">SAFETY CERTIFICATIONS</span>
       <h2 class="text-3xl lg:text-4xl font-bold text-white">Professional Credentials</h2>
-      <p class="text-white/70 mt-4">Click on any certification to add your certificate link</p>
+      <p class="text-white/70 mt-4">Click any certificate to view in full screen</p>
      </div>
-     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"><a href="#" class="fade-in cert-card bg-white/10 backdrop-blur rounded-2xl p-6 border border-white/20 hover:border-safety-orange transition-all cursor-pointer group" data-cert="cert1" target="_blank" rel="noopener noreferrer">
-       <div class="flex items-center gap-4 mb-4">
-        <div class="w-14 h-14 badge-gradient rounded-xl flex items-center justify-center shadow-lg"><span class="text-2xl">🏆</span>
-        </div>
-       </div><h3 class="text-lg font-bold text-white group-hover:text-safety-yellow transition-colors">Safety Process Management</h3><p class="text-white/70 text-sm mt-2">Skill India Certification</p></a> <a href="#" class="fade-in cert-card bg-white/10 backdrop-blur rounded-2xl p-6 border border-white/20 hover:border-safety-orange transition-all cursor-pointer group" data-cert="cert2" target="_blank" rel="noopener noreferrer">
-       <div class="flex items-center gap-4 mb-4">
-        <div class="w-14 h-14 badge-gradient rounded-xl flex items-center justify-center shadow-lg"><span class="text-2xl">🔥</span>
-        </div>
-       </div><h3 class="text-lg font-bold text-white group-hover:text-safety-yellow transition-colors">Basic Fire Safety</h3><p class="text-white/70 text-sm mt-2">Fire Prevention &amp; Response</p></a> <a href="#" class="fade-in cert-card bg-white/10 backdrop-blur rounded-2xl p-6 border border-white/20 hover:border-safety-orange transition-all cursor-pointer group" data-cert="cert3" target="_blank" rel="noopener noreferrer">
-       <div class="flex items-center gap-4 mb-4">
-        <div class="w-14 h-14 badge-gradient rounded-xl flex items-center justify-center shadow-lg"><span class="text-2xl">🏭</span>
-        </div>
-       </div><h3 class="text-lg font-bold text-white group-hover:text-safety-yellow transition-colors">Industrial Safety Management</h3><p class="text-white/70 text-sm mt-2">Comprehensive Industrial Safety</p></a> <a href="#" class="fade-in cert-card bg-white/10 backdrop-blur rounded-2xl p-6 border border-white/20 hover:border-safety-orange transition-all cursor-pointer group" data-cert="cert4" target="_blank" rel="noopener noreferrer">
-       <div class="flex items-center gap-4 mb-4">
-        <div class="w-14 h-14 badge-gradient rounded-xl flex items-center justify-center shadow-lg"><span class="text-2xl">⚠️</span>
-        </div>
-       </div><h3 class="text-lg font-bold text-white group-hover:text-safety-yellow transition-colors">Hazard Management &amp; Safety Training</h3><p class="text-white/70 text-sm mt-2">Risk Assessment &amp; Mitigation</p></a> <a href="#" class="fade-in cert-card bg-white/10 backdrop-blur rounded-2xl p-6 border border-white/20 hover:border-safety-orange transition-all cursor-pointer group" data-cert="cert5" target="_blank" rel="noopener noreferrer">
-       <div class="flex items-center gap-4 mb-4">
-        <div class="w-14 h-14 badge-gradient rounded-xl flex items-center justify-center shadow-lg"><span class="text-2xl">🏗️</span>
-        </div>
-       </div><h3 class="text-lg font-bold text-white group-hover:text-safety-yellow transition-colors">Construction Safety Management</h3><p class="text-white/70 text-sm mt-2">Construction Site Safety</p></a>
+     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"><!-- Cert 1 -->
+      <div class="fade-in cert-card rounded-2xl overflow-hidden shadow-lg card-hover cursor-pointer group h-80 relative bg-white/10 backdrop-blur border border-white/20 hover:border-safety-orange transition-all" data-cert-url=""><img class="cert-image w-full h-full object-cover" alt="Safety Process Management Certificate" loading="lazy" onerror="console.error('Certificate image failed to load:', this.src); this.style.background='#1a2d4a'; this.alt='Image not loaded';">
+       <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col items-center justify-end p-4 text-white opacity-0 group-hover:opacity-100 transition-opacity">
+        <h3 class="text-lg font-bold">Safety Process Management</h3>
+        <p class="text-sm text-white/70">Skill India Certification</p>
+       </div>
+      </div><!-- Cert 2 -->
+      <div class="fade-in cert-card rounded-2xl overflow-hidden shadow-lg card-hover cursor-pointer group h-80 relative bg-white/10 backdrop-blur border border-white/20 hover:border-safety-orange transition-all" data-cert-url=""><img class="cert-image w-full h-full object-cover" alt="Basic Fire Safety Certificate" loading="lazy" onerror="console.error('Certificate image failed to load:', this.src); this.style.background='#1a2d4a'; this.alt='Image not loaded';">
+       <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col items-center justify-end p-4 text-white opacity-0 group-hover:opacity-100 transition-opacity">
+        <h3 class="text-lg font-bold">Basic Fire Safety</h3>
+        <p class="text-sm text-white/70">Fire Prevention &amp; Response</p>
+       </div>
+      </div><!-- Cert 3 -->
+      <div class="fade-in cert-card rounded-2xl overflow-hidden shadow-lg card-hover cursor-pointer group h-80 relative bg-white/10 backdrop-blur border border-white/20 hover:border-safety-orange transition-all" data-cert-url=""><img class="cert-image w-full h-full object-cover" alt="Industrial Safety Management Certificate" loading="lazy" onerror="console.error('Certificate image failed to load:', this.src); this.style.background='#1a2d4a'; this.alt='Image not loaded';">
+       <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col items-center justify-end p-4 text-white opacity-0 group-hover:opacity-100 transition-opacity">
+        <h3 class="text-lg font-bold">Industrial Safety Management</h3>
+        <p class="text-sm text-white/70">Comprehensive Industrial Safety</p>
+       </div>
+      </div><!-- Cert 4 -->
+      <div class="fade-in cert-card rounded-2xl overflow-hidden shadow-lg card-hover cursor-pointer group h-80 relative bg-white/10 backdrop-blur border border-white/20 hover:border-safety-orange transition-all" data-cert-url=""><img class="cert-image w-full h-full object-cover" alt="Hazard Management Certificate" loading="lazy" onerror="console.error('Certificate image failed to load:', this.src); this.style.background='#1a2d4a'; this.alt='Image not loaded';">
+       <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col items-center justify-end p-4 text-white opacity-0 group-hover:opacity-100 transition-opacity">
+        <h3 class="text-lg font-bold">Hazard Management</h3>
+        <p class="text-sm text-white/70">Risk Assessment &amp; Mitigation</p>
+       </div>
+      </div><!-- Cert 5 -->
+      <div class="fade-in cert-card rounded-2xl overflow-hidden shadow-lg card-hover cursor-pointer group h-80 relative bg-white/10 backdrop-blur border border-white/20 hover:border-safety-orange transition-all" data-cert-url=""><img class="cert-image w-full h-full object-cover" alt="Construction Safety Management Certificate" loading="lazy" onerror="console.error('Certificate image failed to load:', this.src); this.style.background='#1a2d4a'; this.alt='Image not loaded';">
+       <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col items-center justify-end p-4 text-white opacity-0 group-hover:opacity-100 transition-opacity">
+        <h3 class="text-lg font-bold">Construction Safety Management</h3>
+        <p class="text-sm text-white/70">Construction Site Safety</p>
+       </div>
+      </div>
      </div>
     </div>
    </section><!-- Statutory Knowledge -->
@@ -544,6 +547,10 @@
      </div>
     </div>
    </footer>
+  </div><!-- Certificate Full View Modal -->
+  <div id="cert-fullview-modal" class="hidden cert-fullview-modal" style="z-index: 70;">
+   <div class="relative max-w-4xl w-full max-h-[85vh] px-4"><button id="cert-fullview-close" class="absolute -top-10 right-0 text-white text-3xl font-bold hover:text-safety-yellow transition-colors z-10">✕</button> <img id="cert-fullview-image" src="" alt="Certificate" class="w-full h-auto rounded-2xl shadow-2xl" loading="lazy">
+   </div>
   </div>
   <script>
     const defaultConfig = {
@@ -560,8 +567,6 @@
       accent_color: '#f6ad55',
       font_family: 'Plus Jakarta Sans',
       profile_image_url: '',
-      cert_urls: {},
-      gallery_urls: {},
       cv_pdf_url: ''
     };
 
@@ -599,7 +604,6 @@
       document.documentElement.style.setProperty('--background-color', config.background_color || defaultConfig.background_color);
       document.documentElement.style.setProperty('--accent-color', config.accent_color || defaultConfig.accent_color);
 
-      // Update profile image if URL exists
       if (config.profile_image_url) {
         const profileLink = document.getElementById('profile-image-link');
         profileLink.href = config.profile_image_url;
@@ -609,30 +613,6 @@
         profileLink.innerHTML = '';
       }
 
-      // Update certificate links
-      if (config.cert_urls) {
-        Object.entries(config.cert_urls).forEach(([certId, url]) => {
-          const certCard = document.querySelector(`[data-cert="${certId}"]`);
-          if (certCard && url) {
-            certCard.href = url;
-          }
-        });
-      }
-
-      // Update gallery images
-      if (config.gallery_urls) {
-        Object.entries(config.gallery_urls).forEach(([galleryId, url]) => {
-          const galleryItem = document.querySelector(`[data-gallery="${galleryId}"]`);
-          if (galleryItem && url) {
-            galleryItem.href = url;
-            galleryItem.style.backgroundImage = `url('${url}')`;
-            galleryItem.classList.add('gallery-with-image');
-            galleryItem.innerHTML = '';
-          }
-        });
-      }
-
-      // Update CV PDF link
       if (config.cv_pdf_url) {
         const cvLink = document.getElementById('download-cv-link');
         cvLink.href = config.cv_pdf_url;
@@ -702,7 +682,6 @@
       mobileMenu.classList.toggle('hidden');
     });
 
-    // Close mobile menu when clicking a link
     mobileMenu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         mobileMenu.classList.add('hidden');
@@ -725,117 +704,50 @@
 
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-    // Certificate card link handlers
-    document.querySelectorAll('.cert-card').forEach(card => {
-      card.addEventListener('click', (e) => {
-        e.preventDefault();
-        const certId = card.dataset.cert;
-        const currentUrl = config.cert_urls?.[certId] || '';
-        const newUrl = prompt(`Enter the link to your certificate image or PDF for "${card.querySelector('h3').textContent}":\n\n(Leave empty to remove)`, currentUrl || '');
-        
-        if (newUrl !== null) {
-          if (!config.cert_urls) config.cert_urls = {};
-          if (newUrl) {
-            config.cert_urls[certId] = newUrl;
-            card.href = newUrl;
-          } else {
-            delete config.cert_urls[certId];
-            card.href = '#';
-          }
-          if (window.elementSdk) {
-            window.elementSdk.setConfig({ cert_urls: config.cert_urls });
-          }
-        }
-      });
-    });
+    // Certificate click handlers
+    const certFullviewModal = document.getElementById('cert-fullview-modal');
+    const certFullviewImage = document.getElementById('cert-fullview-image');
+    const certFullviewClose = document.getElementById('cert-fullview-close');
 
-    // Gallery item link handlers
-    document.querySelectorAll('.gallery-item').forEach(item => {
-      item.addEventListener('click', (e) => {
-        e.preventDefault();
-        const galleryId = item.dataset.gallery;
-        const currentUrl = config.gallery_urls?.[galleryId] || '';
-        const galleryLabels = {
-          'gallery1': 'Site Inspection',
-          'gallery2': 'Toolbox Talk Session',
-          'gallery3': 'Scaffolding Inspection',
-          'gallery4': 'PPE Compliance Check',
-          'gallery5': 'Fire Drill'
-        };
-        const label = galleryLabels[galleryId];
-        const newUrl = prompt(`Enter the link to your photo for "${label}":\n\n(Leave empty to remove)`, currentUrl || '');
-        
-        if (newUrl !== null) {
-          if (!config.gallery_urls) config.gallery_urls = {};
-          if (newUrl) {
-            config.gallery_urls[galleryId] = newUrl;
-            item.href = newUrl;
-            item.style.backgroundImage = `url('${newUrl}')`;
-            item.classList.add('gallery-with-image');
-            item.innerHTML = '';
-          } else {
-            delete config.gallery_urls[galleryId];
-            item.href = '#';
-            item.style.backgroundImage = '';
-            item.classList.remove('gallery-with-image');
-            item.innerHTML = `<svg class="w-12 h-12 text-slate opacity-50" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
-            </svg>
-            <span class="text-slate font-medium">${label}</span>`;
-          }
-          if (window.elementSdk) {
-            window.elementSdk.setConfig({ gallery_urls: config.gallery_urls });
-          }
-        }
-      });
-    });
+    // ===== ADD YOUR CERTIFICATE IMAGE LINKS HERE =====
+    // Replace the empty strings with your certificate image URLs
+    // Examples of where to get certificate images:
+    // - Google Drive: https://drive.google.com/uc?export=view&id=YOUR_FILE_ID
+    // - Dropbox: https://www.dropbox.com/s/YOUR_FILE_ID/cert.jpg?dl=1
+    // - Imgur: https://imgur.com/xxxxx.jpg
+    // - Any other public image URL
+    
+    const certUrls = {
+      0: '', // Cert 1 - Safety Process Management
+      1: '', // Cert 2 - Basic Fire Safety
+      2: '', // Cert 3 - Industrial Safety Management
+      3: '', // Cert 4 - Hazard Management
+      4: ''  // Cert 5 - Construction Safety Management
+    };
 
-    // Profile image handler
-    const profileImageLink = document.getElementById('profile-image-link');
-    profileImageLink.addEventListener('click', (e) => {
-      e.preventDefault();
-      const currentUrl = config.profile_image_url || '';
-      const newUrl = prompt('Enter the link to your profile photo:\n\n(Leave empty to remove)', currentUrl || '');
-      
-      if (newUrl !== null) {
-        if (newUrl) {
-          config.profile_image_url = newUrl;
-          profileImageLink.href = newUrl;
-          profileImageLink.style.backgroundImage = `url('${newUrl}')`;
-          profileImageLink.style.backgroundSize = 'cover';
-          profileImageLink.style.backgroundPosition = 'center';
-          profileImageLink.innerHTML = '';
-        } else {
-          config.profile_image_url = '';
-          profileImageLink.href = '#';
-          profileImageLink.style.backgroundImage = '';
-          profileImageLink.innerHTML = `<div class="absolute inset-0 flex flex-col items-center justify-center text-white">
-            <svg class="w-24 h-24 opacity-50 mb-4" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-            </svg>
-            <p class="text-sm opacity-70 text-center px-4">Profile Photo</p>
-          </div>`;
-        }
-        if (window.elementSdk) {
-          window.elementSdk.setConfig({ profile_image_url: config.profile_image_url });
-        }
+    document.querySelectorAll('.cert-card').forEach((card, index) => {
+      const url = certUrls[index];
+      if (url) {
+        const img = card.querySelector('.cert-image');
+        img.src = url;
       }
+
+      card.addEventListener('click', () => {
+        const img = card.querySelector('.cert-image');
+        if (img.src && img.src !== window.location.href) {
+          certFullviewImage.src = img.src;
+          certFullviewModal.classList.remove('hidden');
+        }
+      });
     });
 
-    // Download CV handler
-    const downloadCvLink = document.getElementById('download-cv-link');
-    downloadCvLink.addEventListener('click', (e) => {
-      if (!config.cv_pdf_url) {
-        e.preventDefault();
-        const newUrl = prompt('Enter the link to your CV PDF:\n\n(Paste your Google Drive, Dropbox, or any public CV link)', config.cv_pdf_url || '');
-        
-        if (newUrl) {
-          config.cv_pdf_url = newUrl;
-          downloadCvLink.href = newUrl;
-          if (window.elementSdk) {
-            window.elementSdk.setConfig({ cv_pdf_url: config.cv_pdf_url });
-          }
-        }
+    certFullviewClose.addEventListener('click', () => {
+      certFullviewModal.classList.add('hidden');
+    });
+
+    certFullviewModal.addEventListener('click', (e) => {
+      if (e.target === certFullviewModal) {
+        certFullviewModal.classList.add('hidden');
       }
     });
 
@@ -852,8 +764,93 @@
       }, 5000);
     });
 
+    // Gallery item handlers
+    document.querySelectorAll('.gallery-item').forEach(item => {
+      item.addEventListener('click', (e) => {
+        e.preventDefault();
+        const galleryLabels = {
+          'gallery1': 'Site Inspection',
+          'gallery2': 'Toolbox Talk Session',
+          'gallery3': 'Scaffolding Inspection',
+          'gallery4': 'PPE Compliance Check',
+          'gallery5': 'Fire Drill'
+        };
+        const galleryId = item.dataset.gallery;
+        const label = galleryLabels[galleryId];
+        const newUrl = prompt(`Enter the link to your photo for "${label}":\n\n(Leave empty to remove)`, item.href !== '#' ? item.href : '');
+        
+        if (newUrl !== null) {
+          if (newUrl) {
+            item.href = newUrl;
+            item.style.backgroundImage = `url('${newUrl}')`;
+            item.classList.add('gallery-with-image');
+            item.innerHTML = '';
+          } else {
+            item.href = '#';
+            item.style.backgroundImage = '';
+            item.classList.remove('gallery-with-image');
+            item.innerHTML = `<svg class="w-12 h-12 text-slate opacity-50" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+            </svg>
+            <span class="text-slate font-medium">${label}</span>`;
+          }
+        }
+      });
+    });
+
+    // Profile image handler
+    const profileImageLink = document.getElementById('profile-image-link');
+    profileImageLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      const newUrl = prompt('Enter the link to your profile photo:', config.profile_image_url || '');
+      
+      if (newUrl !== null) {
+        if (newUrl) {
+          config.profile_image_url = newUrl;
+          profileImageLink.href = newUrl;
+          profileImageLink.style.backgroundImage = `url('${newUrl}')`;
+          profileImageLink.style.backgroundSize = 'cover';
+          profileImageLink.style.backgroundPosition = 'center';
+          profileImageLink.innerHTML = '';
+          if (window.elementSdk) {
+            window.elementSdk.setConfig({ profile_image_url: newUrl });
+          }
+        } else {
+          config.profile_image_url = '';
+          profileImageLink.href = '#';
+          profileImageLink.style.backgroundImage = '';
+          profileImageLink.innerHTML = `<div class="absolute inset-0 flex flex-col items-center justify-center text-white">
+            <svg class="w-24 h-24 opacity-50 mb-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+            </svg>
+            <p class="text-sm opacity-70 text-center px-4">Profile Photo</p>
+          </div>`;
+          if (window.elementSdk) {
+            window.elementSdk.setConfig({ profile_image_url: '' });
+          }
+        }
+      }
+    });
+
+    // Download CV handler
+    const downloadCvLink = document.getElementById('download-cv-link');
+    downloadCvLink.addEventListener('click', (e) => {
+      if (!config.cv_pdf_url) {
+        e.preventDefault();
+        const newUrl = prompt('Enter the link to your CV PDF:', '');
+        
+        if (newUrl) {
+          config.cv_pdf_url = newUrl;
+          downloadCvLink.href = newUrl;
+          if (window.elementSdk) {
+            window.elementSdk.setConfig({ cv_pdf_url: newUrl });
+          }
+        }
+      }
+    });
+
     // Set current year
     document.getElementById('current-year').textContent = new Date().getFullYear();
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9cc3fa3056c4f361',t:'MTc3MDgxNDI4Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9cc41cd463aaf361',t:'MTc3MDgxNTcwMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
